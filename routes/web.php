@@ -14,5 +14,14 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('/dashboard');
+});
+Route::get('/admin', function () {
+    return view('/admin/dashboard_admin');
+});
+Route::get('/admin/tabel', function () {
+    return view('/admin/tabel');
+});
+Route::get('/admin/form', function () {
+    return view('/admin/form');
 });
