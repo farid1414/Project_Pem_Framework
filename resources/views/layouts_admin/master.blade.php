@@ -72,14 +72,5 @@
 
 </body>
 
-<footer>
-    <div class="row">
-        <div class="col-4">
-            <div class="logo">
-                <img src="{{asset ('/img/logo.png')}}" alt="">
-            </div>
-        </div>
-    </div>
-</footer>
 
 </html>
