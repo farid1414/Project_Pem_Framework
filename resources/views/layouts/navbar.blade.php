@@ -22,7 +22,7 @@
                     data-bs-toggle="dropdown" aria-expanded="false">
                     Tiket Event
                 </a>
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
                     <li><a class="dropdown-item" href="#">Webinar</a></li>
                     <li><a class="dropdown-item" href="#">Workshop</a></li>
                 </ul>
@@ -30,25 +30,12 @@
         </ul>
 
         @if(Auth()->user())
-        <div class="btn-group">
-            <div class="dropdown">
-                <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-                </button>
-                <div class="dropdown-menu dropdown-menu-right">
-
-                    <a class="dropdown-item font-weight-bold" href="/edit/{{auth()->user()->id}}"><i
-                            class="fa fa-edit"></i>
-                        Edit Profil</a>
-                    <a class="dropdown-item font-weight-bold" href="/editpassword/{{auth()->user()->id}}"><i
-                            class="fa fa-unlock-alt"></i> Ganti Sandi</a>
-                    <a class="dropdown-item font-weight-bold" href="/logout"><i class="fa fa-reply"></i> LogOut</a>
-                </div>
-            </div>
-        </div>
+        {{Auth()->user()->name}}
+        <a class=" font-weight-bold" href="{{route ('logout')}}"><i class="fa fa-power-off"></i></a>
         @else
         <div>
             <a href="/login" style="text-decoration:none; color:black">Login</a> |
-            <a href="" class="btn btn-sm btn-light "
+            <a href="/registrasi" class="btn btn-sm btn-light "
                 style="text-decoration:none; color:black;box-shadow: 2px 2px 2px rgba(0,0,0,0.8);">Register</a>
         </div>
         @endif
