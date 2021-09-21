@@ -2,7 +2,7 @@
 
 @section('title','SONAR | See All Concerts and Arts')
 
-@section('link')
+@section('link')   
 <link href="{{asset ('/template/css/bootstrap-social.css')}}" rel="stylesheet">
 <link href="{{asset ('/template/css/font-awesome.min.css')}}" rel="stylesheet">
 @endsection

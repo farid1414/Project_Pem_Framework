@@ -45,9 +45,9 @@
                                 </td>
                             </tr>
                             @empty
-                            <tr colspan="3">
+                            <td colspan="3" style="text-align: center;margin-left:auto;margin-right:auto;">
                                 <td>No data</td>
-                            </tr>
+                            </td>
                             @endforelse
                         </tbody>
                     </table>

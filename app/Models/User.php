@@ -14,10 +14,11 @@ class User extends Authenticatable
 
     /**
      * The attributes that are mass assignable.
-     *
+     * 
      * @var string[]
      */
     protected $fillable = [
+        'profils_id',
         'name',
         'email',
         'password',
@@ -41,4 +42,9 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function profil()
+    {
+        return $this->belongsTo('App\Models\Profil', "profils_id", "id");
+    }
 }

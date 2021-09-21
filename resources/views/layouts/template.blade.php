@@ -10,31 +10,26 @@
     <link rel="stylesheet" href="{{asset ('/boostrap/css/bootstrap.css')}}">
     <link href="{{asset ('/img/logo.ico')}}" rel='shortcut icon'>
     <link rel="stylesheet" href="{{asset ('css/style.css')}}">
+    <!-- MetisMenu CSS -->
     @yield('link')
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>@yield('title')</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
 
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"
-        integrity="sha384-W8fXfP3gkOKtndU4JGtKDvXbO53Wy8SZCQHczT5FMiiqmQfUpWbYdTil/SxwZgAN" crossorigin="anonymous">
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.min.js"
-        integrity="sha384-skAcpIdS7UcVUC05LJ9Dxay8AXcDYfBJqt1CJ85S/CFujBsIzCIv+l9liuYLaMQ/" crossorigin="anonymous">
-    </script>
 </head>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500&family=Roboto:wght@300&display=swap');
 
-/* html,
 body {
-    position: relative;
     height: 100%;
 }
+footer
+{
+    bottom: 0;
+}
 
-html {
-    scroll-behavior: smooth;
-} */
 </style>
 
 <body>
@@ -46,10 +41,12 @@ html {
         </nav>
         @include('layouts.navbar')
         <div class="main">
+            @include('sweetalert::alert')
+
             @yield('content')
         </div>
     </div>
-    <footer class="mt-3">
+    <footer class="mt-3 static-bottom" >
         <div class="container-fluid">
             <div class="row">
                 <div class="col-3">

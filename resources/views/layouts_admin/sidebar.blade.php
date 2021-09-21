@@ -27,6 +27,9 @@
                 </ul>
                 <!-- /.nav-second-level -->
             </li>
+            @if(Auth::guard('admin')->user()->level =='perusahaan')
+
+            @else
             <li>
                 <a href="#"><i class="fa fa-table fa-fw"></i>Table<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
@@ -49,8 +52,9 @@
                         <a href="grid.html">Grid</a>
                     </li>
                 </ul>
-                <!-- /.nav-second-level -->
+      
             </li>
+            @endif
             <li>
                 <a href="#"><i class="fa fa-files-o fa-fw"></i> Sample Pages<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">

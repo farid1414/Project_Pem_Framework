@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Daftr_admin;
+use App\Models\User;
 use File;
 use DB;
 use Illuminate\Support\Facades\App;
@@ -14,9 +15,8 @@ class HomeController extends Controller
     {
         $this->validate($request, [
             'nama' => 'required|alpha|max:250',
-            'nama_perushaan' => 'required|max:250',
-            'email' => 'required|email|unique',
-            'surat' => 'required|mimes:pdf|max:2500',
+            'email' => 'required|email',
+            'surat' => 'required|max:2500',
             'logo' => 'required|mimes:jpg,jpeg,png|max:2500',
             'jasa' => 'required',
             'alamat' => 'required'
@@ -31,7 +31,7 @@ class HomeController extends Controller
 
         Daftr_admin::create([
             'nama' => $request->nama,
-            'nama_perushaan' => $request->nama_perusahaan,
+            'nama_perushaan' => $request->nama_perushaan,
             'email' => $request->email,
             'surat' => $new_gambar,
             'logo' => $new_logo,
@@ -43,6 +43,7 @@ class HomeController extends Controller
 
         return redirect('/');
     }
+
 
     // tampil perusahaan antri admin untuk di generate akun
 

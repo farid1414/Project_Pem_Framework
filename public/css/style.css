@@ -6,6 +6,20 @@
     margin: 0 auto;
 }
 
+/* kotak untuk foto profil */
+.kotak-profil {
+    margin: 0 auto;
+    margin-top: 10px;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+}
+/* Foto profik */
+.kotak-profil img {
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 50%;
+}
 /* untuk kotak buiat poster film */
 .bg {
     width: 160px;
@@ -61,6 +75,11 @@ footer {
     text-align: center;
     font-family: Arial, Helvetica, sans-serif;
 }
+/* form-profil */
+.form-profil {
+    margin: 0 auto;
+    width: 80%;
+}
 /* untuk tampilan tablet */
 @media (max-width: 1000px) {
     .kotak {
@@ -80,6 +99,20 @@ footer {
     .title h5 {
         margin-top: 130%;
     }
+}
+.form-img {
+    height: 50px;
+    width: 140px;
+    margin: 0 auto;
+}
+.text-profil {
+    margin: 0 auto;
+    margin-top: 10px;
+}
+.text-profil p {
+    font-size: 13px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    line-height: 5px;
 }
 
 /* untuk tampilan hp */

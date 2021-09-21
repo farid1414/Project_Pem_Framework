@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdminController;
-
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,9 +31,16 @@ Route::post('/admin/generate_akun', [AdminController::class, 'post_generate'])->
 
 
 Route::get('/login', [LoginController::class, 'login'])->name('login');
-Route::post('/login', [LoginController::class, 'postlogin'])->name('postlogin');
+Route::post('/login', [LoginController::class, 'postLogin'])->name('postlogin');
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 Route::get('/registrasi', [LoginController::class, 'registrasi'])->middleware('guest');
 Route::post('/registrasi', [LoginController::class, 'postregis'])->name('registrasi');
 
 Route::post('/form', [HomeController::class, 'postdaftar'])->name('daftar');
+
+Route::Group(['middleware' => ['auth:web']], function () {
+    Route::get('/{id}/ubahpassword', [LoginController::class, 'ubahPassword']);
+    Route::post('/{id}/postpassword', [LoginController::class, 'postPassword'])->name('postpassword');
+    Route::get('/{id}/profil', [UserController::class, 'showProfil']);
+    Route::post('/{id}/profil', [UserController::class, 'postProfil']);
+});

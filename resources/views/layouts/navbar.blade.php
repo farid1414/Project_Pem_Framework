@@ -9,7 +9,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent" style="font-family: 'Oswald', sans-serif;">
         <ul class="navbar-nav me-auto  mb-lg-0 mr-auto">
             <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
+                <a class="nav-link active" aria-current="page" href="/">Home</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">Tiket Film</a>
@@ -18,20 +18,28 @@
                 <a class="nav-link " href="">Tiket Konser</a>
             </li>
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
-                    data-bs-toggle="dropdown" aria-expanded="false">
-                    Tiket Event
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Tiket Event
                 </a>
-                <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                    <li><a class="dropdown-item" href="#">Webinar</a></li>
-                    <li><a class="dropdown-item" href="#">Workshop</a></li>
-                </ul>
-            </li>
+                <div class="dropdown-menu dropdown-menu-left" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="#">Webinar</a>
+                  <a class="dropdown-item" href="#">Workshop</a>
+                </div>
+              </li>
+              
         </ul>
 
         @if(Auth()->user())
-        {{Auth()->user()->name}}
-        <a class=" font-weight-bold" href="{{route ('logout')}}"><i class="fa fa-power-off"></i></a>
+        {{Auth()->user()->profil->nama_depan}}
+        <div class="btn-group pl-3">
+            <button type="button" class="btn btn-secondary btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            </button>
+            <div class="dropdown-menu dropdown-menu-right">
+                <a href="/{{Auth()->user()->id}}/profil" class="dropdown-item"><i class="	fa fa-user-circle"></i> Profil</a>
+                <a href="/{{Auth()->user()->id}}/ubahpassword" class="dropdown-item"><i class="fa fa-gear"></i> Kata Sandi</a>
+                <a href="/logout" class="dropdown-item"><i class="fa fa-power-off"></i> Logout</a>
+            </div>
+          </div>
         @else
         <div>
             <a href="/login" style="text-decoration:none; color:black">Login</a> |

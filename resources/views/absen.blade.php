@@ -9,12 +9,8 @@
 </head>
 <body>
     <div class="testbox">
-        @if(session('sukses'))
-          <div class="alert alert-primary" role="alert">
-              {{session('sukses')}}
-          </div>
-          @endif
-  <form action="{{route ('daftar')}}" method="POST" enctype="multipart/form-data">
+        
+     <form action="{{route ('daftar')}}" method="POST" enctype="multipart/form-data">
           <div class="banner">
           </div>
       <div class="judul-form">
@@ -22,6 +18,15 @@
       </div>
       {{csrf_field()}}
       <div class="form-item">
+        @if (count($errors) > 0)
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
           <div class="item">
               <p>Nama Pendaftar</p>
               <input type="text" name="nama" value="{{old ('nama')}}"  />
@@ -31,7 +36,7 @@
           </div>
           <div class="item">
               <label for=""><p>Nama Perusahaan</p></label>
-              <input type="text" name="nama_perusahaan" {{old ('nama_perusahaan')}} />
+              <input type="text" name="nama_perushaan" {{old ('nama_perushaan')}} />
               @error('nama_perushaan')
               <div class="alert alert-danger">{{$message}}</div>
               @enderror
@@ -69,8 +74,8 @@
               <input type="radio" value="consert" id="radio_2" name="jasa" />
               <label for="radio_2" class="radio"><span>Consert</span></label>
               </div>
-              <input type="radio" value="event" id="radio_2" name="jasa" />
-              <label for="radio_2" class="radio"><span>Event Webinar / workshop</span></label>
+              <input type="radio" value="event" id="radio_3" name="jasa" />
+              <label for="radio_3" class="radio"><span>Event Webinar / workshop</span></label>
               </div>
               @error('jasa')
               <div class="alert alert-danger">{{$message}}</div>
@@ -82,10 +87,6 @@
                @error('alamat')
                <div class="alert alert-danger">{{$message}}</div>
                @enderror
-          </div>
-          <div class="cek" style="display:inline-block">
-              <label for=""<p>Syarat dan ketentuan</p></label>
-              <input type="checkbox" name="setuju" value=""  />
           </div>
           <div class="btn-block">
               <button type="submit" >KIRIM</button>

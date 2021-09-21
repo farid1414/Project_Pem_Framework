@@ -36,11 +36,12 @@ class AdminController extends Controller
         $admin = new \App\Models\Admin;
         $admin->name = $request->nama;
         $admin->email = $request->email;
+        $admin->level = "perusahaan";
         $admin->password = bcrypt($pass);
         $admin->remember_token = Str::random(60);
         $admin->save();
 
-        \Mail::raw('Selamat' . $admin->nama . ' Anda tergabung dalam SONAR (See All Concert and Art) Silahkan upload tike anda Email Anda:' . $admin->email . 'password anda' . $pass, function ($message) use ($admin) {
+        \Mail::raw('Selamat ' . $admin->name . ' Anda tergabung dalam SONAR (See All Concert and Art) Silahkan upload tiket anda Email Anda: ' . $admin->email .  '  password anda:  ' . $pass, function ($message) use ($admin) {
             $message->to($admin->email, $admin->nama);
             $message->subject('Selamat anda tergabung dalam web kami ');
         });
