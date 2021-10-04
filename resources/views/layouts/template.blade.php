@@ -36,7 +36,7 @@ footer
     <div class="container-fluid">
         <nav class="nav" style="background-color: rgb(220, 220, 220,0.2);font-size:14px;text-decoration:none;">
             <a class="nav-link text-dark" href="/form">Daftarkan Perusahaan anda</a>
-            <a class="nav-link text-dark" href="#">Daftarkan event entertainment anda</a>
+            <a class="nav-link text-dark" href="/form-event">Daftarkan event entertainment anda</a>
             <a class="nav-link text-dark" href="" disabled">Bantuan</a>
         </nav>
         @include('layouts.navbar')
@@ -147,7 +147,8 @@ footer
             </div>
         </div>
     </footer>
-</body>
 
+    @stack('script')
+</body>
 
 </html>

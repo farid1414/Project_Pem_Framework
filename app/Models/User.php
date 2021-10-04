@@ -18,8 +18,8 @@ class User extends Authenticatable
      * @var string[]
      */
     protected $fillable = [
-        'profils_id',
         'name',
+
         'email',
         'password',
     ];
@@ -45,6 +45,10 @@ class User extends Authenticatable
 
     public function profil()
     {
-        return $this->belongsTo('App\Models\Profil', "profils_id", "id");
+        return $this->hasOne(Profil::class, 'users_id', 'id');
+    }
+    public function daftar_event()
+    {
+        return $this->hasMany(DaftarEvent::class, 'users_id', 'id');
     }
 }

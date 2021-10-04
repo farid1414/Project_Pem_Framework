@@ -3,20 +3,34 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Daftr_admin;
+use App\Models\DaftarAdmin;
 use App\Models\User;
+use App\Models\DaftarEvent;
+use App\Models\Tiket;
 use File;
 use DB;
 use Illuminate\Support\Facades\App;
+use Carbon\Carbon;
 
 class HomeController extends Controller
 {
+
+    public function dashboard()
+    {
+        // Menampilkan tanggal sekarang
+        $time = Carbon::Now();
+        // {{$time->translatedFormat('l, d F Y')}}
+        $tiket = Tiket::with('kategori')->latest()->get();
+        return view('/dashboard',compact('tiket','time'));
+    }
+
     public function postdaftar(Request $request)
     {
         $this->validate($request, [
             'nama' => 'required|alpha|max:250',
+            'nama_perusahaan' => 'required',
             'email' => 'required|email',
-            'surat' => 'required|max:2500',
+            'surat' => 'required|mimetypes:application/pdf|max:10000',
             'logo' => 'required|mimes:jpg,jpeg,png|max:2500',
             'jasa' => 'required',
             'alamat' => 'required'
@@ -29,17 +43,18 @@ class HomeController extends Controller
         $logo = $request->logo;
         $new_logo = time() . ' - ' . $logo->getClientOriginalName();
 
-        Daftr_admin::create([
+        DaftarAdmin::create([
+            'status_id' => 1,
             'nama' => $request->nama,
-            'nama_perushaan' => $request->nama_perushaan,
+            'nama_perusahaan' => $request->nama_perusahaan,
             'email' => $request->email,
             'surat' => $new_gambar,
             'logo' => $new_logo,
             'jasa' => $request->jasa,
             'alamat' => $request->alamat,
         ]);
-        $gambar->move('img/', $new_gambar);
-        $logo->move('img/', $new_logo);
+        $gambar->move('img/surat', $new_gambar);
+        $logo->move('img/logo', $new_logo);
 
         return redirect('/');
     }

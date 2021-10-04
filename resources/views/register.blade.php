@@ -12,6 +12,8 @@
     <link rel="stylesheet" type="text/css" href="{{asset ('css/main.css')}}">
     <!--===============================================================================================-->
     <link href="{{asset ('/img/logo.png')}}" rel='shortcut icon'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" ></script>
 </head>
 
 <body>
@@ -65,7 +67,19 @@
                         </span>
                         <input class="input100" type="password" name="password">
                         <span class="focus-input100" data-placeholder="Password"></span>
-            
+                    </div>
+                    <div class=" input100">
+                        <span id="captcha-img">
+                            {!!captcha_img()!!}
+                        </span>
+                        <button id="reload" class="btn btn-sm btn-success"><i class="	fa fa-refresh"></i></button>
+                    </div>
+                    <div class=" wrap-input100" >
+                        <span class="btn-show-pass">
+                            <i class="zmdi zmdi-eye"></i>
+                        </span>
+                        <input class="input100" type="text" name="captcha">
+                        <span class="focus-input100" data-placeholder="Enter captcha"></span>
                     </div>
 
                     <div class="container-login100-form-btn">
@@ -93,6 +107,21 @@
 
 
     <div id="dropDownSelect1"></div>
+
+    <script>
+        $('#reload').click(function (e) {
+            e.preventDefault();
+            $.ajax({
+
+                type:'GET',
+                url:'reload',
+                success:function (res) {
+                    $('#captcha-img').html(res.captcha);
+                }
+            });
+        });
+    </script>
+
 
     <!--===============================================================================================-->
     <script src="{{asset ('vendor/jquery/jquery-3.2.1.min.js')}}"></script>

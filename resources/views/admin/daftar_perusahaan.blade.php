@@ -27,6 +27,7 @@
                                 <th>Jasa penyedia</th>
                                 <th>Alamat</th>
                                 <th>Aksi</th>
+                                <td>Keterangan</td>
                             </tr>
                         </thead>
                         <tbody>
@@ -35,13 +36,20 @@
                             <tr>
                                 <td>{{$no++}}</td>
                                 <td>{{$antri->nama}}</td>
-                                <td>{{$antri->nama_perushaan}}</td>
+                                <td>{{$antri->nama_perusahaan}}</td>
                                 <td>{{$antri->email}}</td>
                                 <td>{{$antri->jasa}}</td>
                                 <td>{{$antri->alamat}}</td>
                                 <td>
                                     <a href="" class="btn btn-sm btn-primary"><i class="fa fa-eye"></i></a>
                                     <a href="/admin/{{$antri->id}}/generate_akun" class="btn btn-sm btn-warning"><i class="fa fa-cloud-upload"></i></a>
+                                </td>
+                                <td style="text-align:center">
+                                    @if($antri->status_id ==1)
+                                    <button  class="btn btn-sm btn-warning">Antri</button>
+                                    @else 
+                                    <button  class="btn btn-sm btn-success">Sukses</button>
+                                    @endif
                                 </td>
                             </tr>
                             @empty

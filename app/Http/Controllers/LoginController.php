@@ -26,6 +26,11 @@ class LoginController extends Controller
         return view('/ganti_password');
     }
 
+    public function reload()
+    {
+        return response()->json(['captcha'=> captcha_img()]);
+    }
+
 
     // untuk login masuk user atau admin
     public function postLogin(Request $request)
@@ -34,9 +39,23 @@ class LoginController extends Controller
             toast('Selamat datang admin', 'success');
             return redirect('/admin');
         } elseif (Auth::guard('web')->attempt(['email' => $request->email, 'password' => $request->password])) {
-            toast('Selamat datang user', 'success');
+            toast('Selamat datang di Sonar ', 'success');
             return redirect('/');
         }
+
+        // $kredensil = $request->only('email', 'password');
+
+        // if (Auth::attempt($kredensil)) {
+        //     $user = Auth::user();
+        //     if ($user->level == 'admin') {
+        //         return redirect()->intended('admin');
+        //     } elseif ($user->level == 'user') {
+        //         return redirect()->intended('/');
+        //     }
+        //     return redirect()->intended('login');
+        // }
+
+
         return Redirect::back()->with('gagal', 'Email atau kata sandi anda salah');
     }
 
@@ -59,26 +78,27 @@ class LoginController extends Controller
             'nama_depan' => 'required|alpha|max:255',
             'nama_belakang' => 'required|alpha|max:255',
             'email' => 'required|email',
-            'password' => 'required|min:6|alpha_num'
+            'password' => 'required|min:6|alpha_num',
+            'captcha' => 'required|captcha'
         ]);
 
         $fullname = $request->nama_depan . " " . $request->nama_belakang;
         $pass = $request->password;
-        $profil = Profil::create([
-            'nama_depan' => $request->nama_depan,
-            'nama_belakang' => $request->nama_belakang,
-            'jenis_kelamin' => $request->jenis_kelamin,
-        ]);
 
         // tambbah data ke user 
         $user = new \App\Models\User;
-        $user->profils_id = $profil->id;
         $user->name = $fullname;
         $user->email = $request->email;
         $user->password = bcrypt($pass);
         $user->remember_token = Str::random(60);
         $user->save();
 
+        $profil = Profil::create([
+            'users_id' => $user->id,
+            'nama_depan' => $request->nama_depan,
+            'nama_belakang' => $request->nama_belakang,
+            'jenis_kelamin' => $request->jenis_kelamin,
+        ]);
 
 
         return redirect('/login');

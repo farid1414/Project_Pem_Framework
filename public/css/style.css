@@ -32,10 +32,17 @@
     max-width: 100%;
     height: 250px;
 }
+.bg-text {
+    border: 1px solid black;
+    font-size: 20px;
+    color: white;
+    padding: 5px;
+}
 /* icon di bawah poster */
 .icon {
     float: right;
-    margin-right: 5px;
+    margin-right: 10px;
+    display: inline;
 }
 /* judul di dalam card */
 .title h5 {
@@ -108,6 +115,7 @@ footer {
 .text-profil {
     margin: 0 auto;
     margin-top: 10px;
+    text-align: center;
 }
 .text-profil p {
     font-size: 13px;

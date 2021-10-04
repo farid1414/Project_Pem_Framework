@@ -30,38 +30,27 @@
           <div class="item">
               <p>Nama Pendaftar</p>
               <input type="text" name="nama" value="{{old ('nama')}}"  />
-              @error('nama')
-              <div class="alert alert-danger">{{$message}}</div>
-              @enderror
           </div>
           <div class="item">
               <label for=""><p>Nama Perusahaan</p></label>
-              <input type="text" name="nama_perushaan" {{old ('nama_perushaan')}} />
-              @error('nama_perushaan')
-              <div class="alert alert-danger">{{$message}}</div>
-              @enderror
+              <input type="text" name="nama_perusahaan" value="{{old ('nama_perushaan')}}" />
+       
           </div>
           <div class="item">
               <label for=""><p>Email Perusahaan</p></label>
-              <input type="email" name="email" {{old ('email')}}  />
-              @error('email')
-              <div class="alert alert-danger">{{$message}}</div>
-              @enderror
+              <input type="email" name="email" value="{{old ('email')}}"  />
+           
           </div>
           <div class="item">
               <label for=""><p>Surat Perusahaan</p></label>
-              <input type="file" name="surat"/>
+              <input type="file" name="surat" value="{{old ('surat')}}"/>
               <span style="font-size: 12px">File pdf</span>
-              @error('surat')
-              <div class="alert alert-danger">{{$message}}</div>
-              @enderror
+          
           </div>
           <div class="item">
               <label for=""><p>Logo Perusahaan</p></label>
               <input type="file" name="logo" />
-              @error('logo')
-              <div class="alert alert-danger">{{$message}}</div>
-              @enderror
+             
           </div>
           <div class="question">
                <p>Jasa Penyedia</p>
@@ -77,16 +66,12 @@
               <input type="radio" value="event" id="radio_3" name="jasa" />
               <label for="radio_3" class="radio"><span>Event Webinar / workshop</span></label>
               </div>
-              @error('jasa')
-              <div class="alert alert-danger">{{$message}}</div>
-              @enderror
+            
           </div>
           <div class="item">
                <p>Alamat Perusahaan</p>
-               <textarea name="alamat" id="alasan" cols="3" rows="3"></textarea>
-               @error('alamat')
-               <div class="alert alert-danger">{{$message}}</div>
-               @enderror
+               <textarea name="alamat" id="alasan" cols="3" rows="3">{{old ('alamat')}}</textarea>
+           
           </div>
           <div class="btn-block">
               <button type="submit" >KIRIM</button>

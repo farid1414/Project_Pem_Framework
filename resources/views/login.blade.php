@@ -38,10 +38,13 @@
                         <span class="btn-show-pass">
                             <i class="zmdi zmdi-eye"></i>
                         </span>
-                        <input class="input100" type="password" name="password">
+                        <input class="input100 " id="form-password" type="password" name="password">
                         <span class="focus-input100" data-placeholder="Password"></span>
                     </div>
-
+                    {{-- <div class="input100 row">   
+                        <input class="input10" id="form-checkbox" type="checkbox">
+                        <label for="">Show Password</label>
+                    </div> --}}
                     <div class="container-login100-form-btn">
                         <div class="wrap-login100-form-btn">
                             <div class="login100-form-bgbtn"></div>
@@ -67,16 +70,25 @@
 
 
     <div id="dropDownSelect1"></div>
-
-    <!--===============================================================================================-->
-    <script src="{{asset ('vendor/jquery/jquery-3.2.1.min.js')}}"></script>
-    <!--===============================================================================================-->
-    <script src="{{asset ('vendor/animsition/js/animsition.min.js')}}"></script>
-    <!--===============================================================================================-->
-    <script src="{{asset ('/boostrap/js/popper.js')}}"></script>
-    <script src="{{asset ('/boostrap/js/bootstrap.min.js')}}"></script>
-    <script src="{{asset ('/vendor/main.js')}}"></script>
-    <!--===============================================================================================-->
 </body>
-
+<!--===============================================================================================-->
+<script src="{{asset ('vendor/jquery/jquery-3.2.1.min.js')}}"></script>
+<!--===============================================================================================-->
+<script src="{{asset ('vendor/animsition/js/animsition.min.js')}}"></script>
+<!--===============================================================================================-->
+<script src="{{asset ('/boostrap/js/popper.js')}}"></script>
+<script src="{{asset ('/boostrap/js/bootstrap.min.js')}}"></script>
+<script src="{{asset ('/vendor/main.js')}}"></script>
+<!--===============================================================================================-->
+{{-- <script type="text/javascript">
+	$(document).ready(function(){		
+		$('.form-checkbox').click(function(){
+			if($(this).is(':checked')){
+				$('.form-password').attr('type','text');
+			}else{
+				$('.form-password').attr('type','password');
+			}
+		});
+	});
+</script> --}}
 </html>

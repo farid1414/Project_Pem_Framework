@@ -13,7 +13,7 @@
             <div class="panel-body">
                 <div class="row">
                     <div class="col">
-                        <form role="form" action="{{route ('post_generate')}}" method="POST">
+                        <form role="form" action="/admin/{{$antri_admin->id}}/generate_akun" method="POST">
                             {{csrf_field()}}
                             <div class="form-group">
                                 <label>Nama Pendaftar</label>
@@ -21,7 +21,7 @@
                             </div>
                             <div class="form-group">
                                 <label>Nama Perusahaan</label>
-                                <input class="form-control" type="text" name="nama" value="{{$antri_admin->nama_perushaan}}" readonly>
+                                <input class="form-control" type="text" name="nama" value="{{$antri_admin->nama_perusahaan}}" readonly>
                             </div>
                             <div class="form-group">
                                 <label>Email Perusahaan</label>
@@ -33,17 +33,13 @@
                             </div>
                         </form>
                     </div>
-                    <!-- /.col-lg-6 (nested) -->
-                    
-                    <!-- /.col-lg-6 (nested) -->
                 </div>
-                <!-- /.row (nested) -->
+
             </div>
-            <!-- /.panel-body -->
+
         </div>
-        <!-- /.panel -->
+
     </div>
-    <!-- /.col-lg-12 -->
+
 </div>
-<!-- /.row -->
 @endsection

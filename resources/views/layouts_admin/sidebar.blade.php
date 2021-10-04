@@ -28,16 +28,36 @@
                 <!-- /.nav-second-level -->
             </li>
             @if(Auth::guard('admin')->user()->level =='perusahaan')
-
+            <li>
+                <a href="#"><i class="fa fa-table fa-fw"></i>Table<span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level">
+                    <li>
+                        <a href="buttons.html">Buttons</a>
+                    </li>
+                    <li>
+                        <a href="notifications.html">Notifications</a>
+                    </li>
+                    <li>
+                        <a href="typography.html">Typography</a>
+                    </li>
+                    <li>
+                        <a href="icons.html"> Icons</a>
+                    </li>
+                    <li>
+                        <a href="grid.html">Grid</a>
+                    </li>
+                </ul>
+      
+            </li>
             @else
             <li>
                 <a href="#"><i class="fa fa-table fa-fw"></i>Table<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li>
-                        <a href="/admin/daftar_antri_admin">Daftar Pengajuan Admin</a>
+                        <a href="/admin/daftar-antri-admin">Daftar Pengajuan Admin</a>
                     </li>
                     <li>
-                        <a href="buttons.html">Buttons</a>
+                        <a href="/admin/daftar-antri-event">Daftar Pengajuan Event</a>
                     </li>
                     <li>
                         <a href="notifications.html">Notifications</a>

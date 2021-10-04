@@ -27,21 +27,31 @@
 <div class="row mt-4 mb-3">
     <div class="col-10">
         <div class="row">
-            <div class="col-2 mt-2 mb-4 ">
-                <div class="kotak">
-                    <div class="bg mt-1">
-                        <img src="{{asset ('/img/fast.jpg')}}" alt="">
-                    </div>
-                    <div class="title mt-1">
-                        <h5>Judul</h5>
-                    </div>
-                    <div class="icon">
-                        <a href="" class="btn btn-warning btn-sm  btn-circle"><i class="fa fa-globe"></i></a>
-                        <a href="" class="btn btn-primary btn-sm  btn-circle"><i class="fa fa-shopping-cart"></i></a>
+            @foreach ($tiket as $tiket)
+                <div class="col-2 mt-2 mb-4 ">
+                    <div class="kotak">
+                        <div class="bg mt-1">
+                            <img src="{{'/img/event/' . $tiket->gambar}}" alt="">
+                        </div>
+                        <div class="title mt-1">
+                            <h5>{{$tiket->judul}}</h5>
+                        </div>
+                        <div class="icon">
+                            @if ($time <= $tiket->tgl_mulai)
+                            <a class="bg-success bg-text">Coming Soon</a>
+                            @elseif ($time >= $tiket->tgl_akhir)
+                            <a class="bg-danger bg-text">Tutup</a>
+                            <a href="" class="btn btn-warning btn-sm  btn-circle"><i class="fa fa-globe"></i></a>
+                            @elseif ($time >= $tiket->tgl_mulai || $time <= $tiket->tgl_akhir)
+                            <a href="" class="btn btn-primary btn-sm  btn-circle"><i class="fa fa-shopping-cart"></i></a>
+                            @endif
+
+                            {{-- <a href="" class="btn btn-warning btn-sm  btn-circle"><i class="fa fa-globe"></i></a>
+                            <a href="" class="btn btn-primary btn-sm  btn-circle"><i class="fa fa-shopping-cart"></i></a> --}}
+                        </div>
                     </div>
                 </div>
-            </div>
-
+            @endforeach
         </div>
     </div>
     <div class="col-2">

@@ -25,18 +25,22 @@
                   <a class="dropdown-item" href="#">Webinar</a>
                   <a class="dropdown-item" href="#">Workshop</a>
                 </div>
-              </li>
-              
+            </li>
+            
         </ul>
-
+        
         @if(Auth()->user())
+        <div style="margin-right: 5px">
+            <img src="{{Auth()->user()->profil->getGambar()}}" width="25px" class="img-circle" alt="">
+        </div>
         {{Auth()->user()->profil->nama_depan}}
         <div class="btn-group pl-3">
             <button type="button" class="btn btn-secondary btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             </button>
-            <div class="dropdown-menu dropdown-menu-right">
+            <div class="dropdown-menu dropdown-menu-right"> 
                 <a href="/{{Auth()->user()->id}}/profil" class="dropdown-item"><i class="	fa fa-user-circle"></i> Profil</a>
                 <a href="/{{Auth()->user()->id}}/ubahpassword" class="dropdown-item"><i class="fa fa-gear"></i> Kata Sandi</a>
+                <a href="/tabel-pengajuan" class="dropdown-item"><i class="	fa fa-handshake-o"></i> Pengajuan </a>  
                 <a href="/logout" class="dropdown-item"><i class="fa fa-power-off"></i> Logout</a>
             </div>
           </div>
