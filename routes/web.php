@@ -22,6 +22,18 @@ Route::get('/admin', [AdminController::class, 'dashboard'])->name('admin');
 Route::get('/form', function () {
     return view('/absen');
 });
+Route::get('/film', function () {
+    return view('/tiket_film');
+});   
+Route::get('/konser', function () {
+    return view('/tiket_konser');
+}); 
+Route::get('/webinar', function () {
+    return view('/webinar');
+}); 
+Route::get('/workshop', function () {
+    return view('/workshop');
+});       
 Route::get('/f', function () {
     return view('/admin/form');
 });

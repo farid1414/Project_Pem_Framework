@@ -12,18 +12,18 @@
                 <a class="nav-link active" aria-current="page" href="/">Home</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Tiket Film</a>
+                <a class="nav-link" href="film">Tiket Film</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link " href="">Tiket Konser</a>
+                <a class="nav-link " href="konser">Tiket Konser</a>
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   Tiket Event
                 </a>
                 <div class="dropdown-menu dropdown-menu-left" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item" href="#">Webinar</a>
-                  <a class="dropdown-item" href="#">Workshop</a>
+                  <a class="dropdown-item" href="webinar">Webinar</a>
+                  <a class="dropdown-item" href="workshop">Workshop</a>
                 </div>
             </li>
             

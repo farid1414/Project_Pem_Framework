@@ -27,31 +27,32 @@
 <div class="row mt-4 mb-3">
     <div class="col-10">
         <div class="row">
-            @foreach ($tiket as $tiket)
-                <div class="col-2 mt-2 mb-4 ">
-                    <div class="kotak">
-                        <div class="bg mt-1">
-                            <img src="{{'/img/event/' . $tiket->gambar}}" alt="">
-                        </div>
-                        <div class="title mt-1">
-                            <h5>{{$tiket->judul}}</h5>
-                        </div>
-                        <div class="icon">
-                            @if ($time <= $tiket->tgl_mulai)
-                            <a class="bg-success bg-text">Coming Soon</a>
-                            @elseif ($time >= $tiket->tgl_akhir)
-                            <a class="bg-danger bg-text">Tutup</a>
-                            <a href="" class="btn btn-warning btn-sm  btn-circle"><i class="fa fa-globe"></i></a>
-                            @elseif ($time >= $tiket->tgl_mulai || $time <= $tiket->tgl_akhir)
-                            <a href="" class="btn btn-primary btn-sm  btn-circle"><i class="fa fa-shopping-cart"></i></a>
-                            @endif
-
-                            {{-- <a href="" class="btn btn-warning btn-sm  btn-circle"><i class="fa fa-globe"></i></a>
-                            <a href="" class="btn btn-primary btn-sm  btn-circle"><i class="fa fa-shopping-cart"></i></a> --}}
-                        </div>
-                    </div>
-                </div>
-            @endforeach
+        <div class="card-deck">
+  <div class="card">
+    <img src="/img/gambar1.jpg" width="100" height="200" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">Film Avengers</h5>
+      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+      <p class="card-text"><small class="text-muted">Diposting 2 Menit Lalu</small></p>
+    </div>
+  </div>
+  <div class="card">
+    <img src="/img/gambar2.jpg" width="100" height="200" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">Konser One Direction</h5>
+      <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+      <p class="card-text"><small class="text-muted">Diposting 2 Menit Lalu</small></p>
+    </div>
+  </div>
+  <div class="card">
+    <img src="/img/gambar3.jpg" width="100" height="200" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">Webinar</h5>
+      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+      <p class="card-text"><small class="text-muted">Diposting 2 Menit Lalu</small></p>
+    </div>
+  </div>
+</div>
         </div>
     </div>
     <div class="col-2">
