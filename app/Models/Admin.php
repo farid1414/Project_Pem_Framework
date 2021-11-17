@@ -12,7 +12,7 @@ class Admin extends Authenticatable
     use HasFactory, Notifiable;
 
     protected $table = 'admin';
-    protected $fillable = ['name', 'level', 'email', 'password'];
+    protected $fillable = ['name', 'level','penyedia','email', 'password'];
 
     protected $hidden = [
         'password',
@@ -21,4 +21,9 @@ class Admin extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function tiket()
+    {
+        return $this->hasMany(Tiket::class, 'admin_id', 'id');
+    }
 }

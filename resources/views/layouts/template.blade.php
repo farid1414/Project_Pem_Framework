@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="{{asset ('/boostrap/css/bootstrap.css')}}">
     <link href="{{asset ('/img/logo.ico')}}" rel='shortcut icon'>
     <link rel="stylesheet" href="{{asset ('css/style.css')}}">
+    <link rel="stylesheet" href="{{asset ('css/message.css')}}">
     <!-- MetisMenu CSS -->
     @yield('link')
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -17,6 +18,16 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="{{asset ('css/trix.css')}}">
+    <script src="{{asset ('/js/trix.js')}}"></script>
+    <style>
+        trix-toolbar [data-trix-button-group="file-tools"] {
+      display: none;
+      }
+      </style>
+    
+    @livewireStyles
 
 </head>
 <style>
@@ -119,9 +130,10 @@ footer
                         </div>
                         <div class="list-kel mt-4">
                             <ul>
-                                <li><a href="">Tiket Consert</a></li>
-                                <li><a href="">Tiket Film</a></li>
-                                <li><a href="">Tiket Webinar & Workshop</a></li>
+                                <li><a href="/tiket?category=4">Tiket Consert</a></li>
+                                <li><a href="/tiket?category=3">Tiket Film</a></li>
+                                <li><a href="/tiket?category=1">Tiket Webinar</a></li>
+                                <li><a href="/tiket?category=2">Tiket Konser</a></li>
                             </ul>
                         </div>
                     </div>
@@ -133,8 +145,8 @@ footer
                         </div>
                         <div class="list-kel mt-4 ">
                             <ul>
-                                <li><a href="">Daftkan perusahaan anda</a></li>
-                                <li><a href="">Daftarkan event entertainment anda</a></li>
+                                <li><a href="/form">Daftarkan perusahaan anda</a></li>
+                                <li><a href="/form-event">Daftarkan event entertainment anda</a></li>
                                 <li><a href="">Syarat dan ketentuan</a></li>
                                 <li><a href="">Bantuan</a></li>
                             </ul>
@@ -149,6 +161,8 @@ footer
     </footer>
 
     @stack('script')
+
+    @livewireScripts
 </body>
 
 </html>

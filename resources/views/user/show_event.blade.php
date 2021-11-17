@@ -22,7 +22,7 @@
             </div>
             <div class="form-group">
                 <label for="exampleFormControlInput1">Kategori Event</label>
-                <select class="form-control" aria-label=".form-select-sm example" name="kategori_id">
+                <select class="form-control" aria-label=".form-select-sm example" name="kategoris_id">
                     <option value="1" @if($event->kategori_id == 1) selected @endif >Webinar</option>
                     <option value="2" @if($event->kategori_id == 2) selected @endif>workshop</option>
                 </select>

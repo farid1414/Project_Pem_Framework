@@ -30,6 +30,15 @@
 
     <!-- Custom Fonts -->
     <link href="{{asset ('/template/css/font-awesome.min.css')}}" rel="stylesheet" type="text/css">
+
+    {{-- trix editor --}}
+    <link rel="stylesheet" href="{{asset ('css/trix.css')}}">
+    <script src="{{asset ('/js/trix.js')}}"></script>
+    <style>
+        trix-toolbar [data-trix-button-group="file-tools"] {
+      display: none;
+      }
+      </style>
 </head>
 
 <body>

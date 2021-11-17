@@ -19,9 +19,7 @@
                 <i class="fa fa-user fa-fw"></i>{{Auth::guard('admin')->user()->name}} <b class="caret"></b>
             </a>
             <ul class="dropdown-menu dropdown-user">
-                <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
-                </li>
-                <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
+                <li><a href="/admin/{{Auth::guard('admin')->user()->id}}/edit-password"><i class="fa fa-gear fa-fw"></i> Ganti Sandi</a>
                 </li>
                 <li class="divider"></li>
                 <li><a href="/logout"><i class="fa fa-sign-out fa-fw"></i> Logout</a>

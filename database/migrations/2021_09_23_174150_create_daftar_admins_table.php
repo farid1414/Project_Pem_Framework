@@ -18,6 +18,7 @@ class CreateDaftarAdminsTable extends Migration
             $table->unsignedBigInteger('status_id');
             $table->string('nama');
             $table->string('nama_perusahaan');
+            $table->string('penyedia');
             $table->string('email', 100);
             $table->string('surat', 100);
             $table->string('logo', 100);

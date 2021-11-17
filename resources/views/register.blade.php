@@ -41,17 +41,17 @@
                         </div>
                     @endif
                     <div class="wrap-input100">
-                        <input class="input100" type="text" name="nama_depan" value="{{ old ('nama_depan','') }}">
+                        <input class="input100" type="text" name="nama_depan" >
                         <span class="focus-input100" data-placeholder="Nama depan"></span>
                     </div>
                     
                     <div class="wrap-input100">
-                        <input class="input100" type="text" name="nama_belakang" value="{{ old ('nama_belakang','') }}">
+                        <input class="input100" type="text" name="nama_belakang" >
                         <span class="focus-input100" data-placeholder="Nama belakang"></span>
                     </div>
 
                     <div class="wrap-input100">
-                        <input class="input100" type="text" name="email" value="{{ old ('email','') }}">
+                        <input class="input100" type="text" id="email" name="email" >
                         <span class="focus-input100" data-placeholder="Email"></span>
                     </div>
                     <div class="wrap-input100" >

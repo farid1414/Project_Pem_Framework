@@ -26,7 +26,7 @@
                 </thead>
                 <tbody>
                     <?php $no=1 ?> 
-                @foreach($event as $event)
+                @forelse($event as $event)
                     @if($event->users_id == Auth::user()->id)    
                     <tr>
                       <th scope="row">{{$no++}}</th>
@@ -50,21 +50,24 @@
                       </td>
                       <td>
                         @if($event->status_id ==1)
-                        <div class="" style="display: inline-block;">
-                            <a href="/edit-event/{{$event->id}}" class="btn btn-sm btn-warning"><i class="fa fa-edit"></i></a>
-                            <a href="" class="btn btn-sm btn-danger"><i class="fa fa-trash-o"></i></a>
-                            <a href="{{'img/event/' . $event->gambar}}" class="btn btn-sm btn-success"><i class="	fa fa-eye"></i></a>
+                        <div class="d-inline" >
+                            <a href="/edit-event/{{$event->id}}" class="badge badge-warning border-0"><i class="fa fa-edit"></i></a>
+                            <form action="/tabel-pengajuan/{{$event->id}}" method="POST" class="d-inline">
+                              @method('delete')
+                              @csrf
+                              <button class="badge badge-danger border-0" onclick="return confirm('Apakah anda yakin?')"><i class="fa fa-trash"></i></button>
+                            </form>
+                            <a href="{{'img/event/' . $event->gambar}}" class="badge badge-success border-0"><i class="	fa fa-eye"></i></a>
                         </div>
                         @endif
                       </td>
                     </tr>
                     @endif
-                    @if($event->users_id != Auth::user()->id)
-                    <tr style="text-align: center;margin-left:auto;margin-right:auto;">
-                        <td colspan="11">Anda Belum Mengajukan Event</td>
+                    @empty
+                    <tr>
+                      <td colspan="11" class="text-center">Anda Belum Mengajukan Event</td>
                     </tr>
-                    @endif 
-                @endforeach
+                @endforelse
                 </tbody>
               </table>
         </div> 

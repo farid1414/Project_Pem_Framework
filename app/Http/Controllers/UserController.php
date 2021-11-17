@@ -7,14 +7,18 @@ use App\Models\User;
 use File;
 use App\Models\DaftarEvent;
 use App\Models\Profil;
+use App\Models\Tiket;
+use Hashids\Hashids;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Crypt;
 
 class UserController extends Controller
 {
     //show profil
     public function showProfil($id)
     {
-        $user = User::find($id);
+        $decryptID= Crypt::decryptString($id);
+        $user = User::findOrFail($decryptID);
         return view('/show_profil', compact('user'));
     }
 
@@ -112,7 +116,7 @@ class UserController extends Controller
 
         $this->validate($request, [
             'judul' => 'required',
-            'kategori_id' => 'required',
+            'kategoris_id' => 'required',
             'sinopsis' => 'required',
             'tgl_mulai' => 'required',
             'tgl_akhir' => 'required',
@@ -129,7 +133,7 @@ class UserController extends Controller
 
             $data = [
                 'judul' => $request->judul,
-                'kategori_id' => $request->kategori_id,
+                'kategoris_id' => $request->kategoris_id,
                 'sinopsis' => $request->sinopsis,
                 'tgl_mulai' => $request->tgl_mulai,
                 'tgl_akhir' => $request->tgl_akhir,
@@ -140,7 +144,7 @@ class UserController extends Controller
         } else {
             $data = ([
                 'judul' => $request->judul,
-                'kategori_id' => $request->kategori_id,
+                'kategoris_id' => $request->kategoris_id,
                 'sinopsis' => $request->sinopsis,
                 'tgl_mulai' => $request->tgl_mulai,
                 'tgl_akhir' => $request->tgl_akhir,
@@ -153,5 +157,50 @@ class UserController extends Controller
         
         toast('Profil Anda Berhasil Diubah', 'success');
         return redirect()->back();
+    }
+
+    // untuk hapus event
+    public function hapusEvent(DaftarEvent $DaftarEvent)
+    {
+        DaftarEvent::destroy($DaftarEvent->id);
+
+        toast('Anda berhasil menghapus pengajuan event', 'success');
+        return redirect('/');
+    }
+
+    // untuk membuat fungsi membeli tiket
+    public function beliTiket(Request $request)
+    {
+        $id = $request->id_tiket;  
+
+        $tiket =Tiket::find($id);
+        $user = Auth()->user()->id;
+
+        if($tiket->user()->where('user_id',$user)->exists()){
+            alert()->error('MOHON MAAF','Anda Sudah Mempunyai Tiket Event ini');
+            return redirect('/');
+        }
+       $post= $tiket->user()->attach($user,['email' =>$request->email]);
+        alert()->success('Selamat','Anda telah membeli tiket Silahkan cek di fitur tiket saya untuk akses event ');
+       return redirect ('/');
+    }
+
+    
+
+    // untuk mngakses streaming event
+    public function tiketSaya($id)
+    {
+        $decryptID= Crypt::decryptString($id);
+        $user = User::findOrFail($decryptID);
+        $time = Carbon::Now();
+        return view ('/tiket_saya',compact('user', 'time'));
+    }
+
+    public function liveStream($id)
+    {
+        $decryptID= Crypt::decryptString($id);
+        $tiket = Tiket::findOrFail($decryptID);
+
+        return view('/streaming', compact('tiket'));
     }
 }

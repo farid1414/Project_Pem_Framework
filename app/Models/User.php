@@ -51,4 +51,8 @@ class User extends Authenticatable
     {
         return $this->hasMany(DaftarEvent::class, 'users_id', 'id');
     }
+    public function tiket()
+    {
+        return $this->belongsToMany(Tiket::class)->withPivot('email','code');
+    }
 }

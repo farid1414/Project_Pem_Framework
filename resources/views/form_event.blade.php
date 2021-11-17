@@ -6,6 +6,15 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Form Media Partner</title>
     <link rel="stylesheet" type="text/css" href="{{asset ('/css/absen.css')}}">
+    <link rel="stylesheet" href="{{asset ('css/trix.css')}}">
+    <script src="{{asset ('/js/trix.js')}}"></script>
+
+
+    <style>
+      trix-toolbar [data-trix-button-group="file-tools"] {
+    display: none;
+    }
+    </style>
 </head>
 <body>
     <div class="testbox">
@@ -46,11 +55,12 @@
           <div class="item">
               <label for=""><p>Poster</p></label>
               <input type="file" name="gambar"/>
-              <span style="font-size: 12px">File pdf</span>
           </div>
           <div class="item">
             <p>Keterangan Event</p>
             <textarea name="sinopsis" id="alasan" cols="3" rows="3">{{old ('sinopsis')}}</textarea>
+            {{-- <input id="sinopsis" type="hidden" name="sinopsis" value="{{old('sinopsis')}}">
+            <trix-editor input="sinopsis"></trix-editor> --}}
           </div>
           <div class="item">
             <p>Tanggal buka tiket</p>

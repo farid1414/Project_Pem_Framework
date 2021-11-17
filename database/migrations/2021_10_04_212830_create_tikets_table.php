@@ -26,7 +26,8 @@ class CreateTiketsTable extends Migration
             $table->timestamp('tgl_tayang');
             $table->integer('stok');
             $table->bigInteger('harga');
-            $table->string('link')->nullable();
+            $table->unsignedBigInteger('platform_id')->nullable();
+            $table->text('link')->nullable();
             $table->timestamps();
         });
     }

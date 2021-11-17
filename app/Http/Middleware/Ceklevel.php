@@ -22,7 +22,7 @@ class Ceklevel
         // }
         // return redirect('/');
 
-        if(Auth::guard('admin')->user()->level === 'perusahaan')
+        if( Auth::guard('admin')->user()->level === 'perusahaan')
         {
             abort(404);
         }

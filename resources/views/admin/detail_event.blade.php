@@ -39,6 +39,8 @@
                             <div class="form-group">
                                 <label>Keterangan Event</label>
                                 <textarea class="form-control" name="sinopsis" rows="3" readonly>{{$event->sinopsis}}</textarea>
+                                {{-- <input id="sinopsis" type="hidden" name="sinopsis" value="{!!$event->sinopsis!!}">
+                                <trix-editor input="sinopsis"></trix-editor> --}}
                             </div>
                             <div class="form-group">
                                 <label>Open Ticket</label>

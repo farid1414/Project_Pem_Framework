@@ -27,6 +27,10 @@
                                 <label>Email Perusahaan</label>
                                 <input class="form-control" type="email" name="email" value="{{$antri_admin->email}}" readonly>
                             </div>
+                            <div class="form-group">
+                                <label>Jasa Penyedia</label>
+                                <input class="form-control" type="text" name="penyedia" value="{{$antri_admin->penyedia}}" readonly>
+                            </div>
                             
                             <div style="float: right">
                                 <button type="submit" class="btn btn-primary">Generate Akun</button>

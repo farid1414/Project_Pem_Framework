@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Redirect;
 use App\Models\Profil;
 use App\Models\User;
 use Illuminate\Support\Str;
-use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Crypt;
 
 class LoginController extends Controller
 {
@@ -22,7 +22,8 @@ class LoginController extends Controller
     }
     public function ubahPassword($id)
     {
-        $user = User::find($id);
+        $decryptID= Crypt::decryptString($id);
+        $user = User::find($decryptID);
         return view('/ganti_password');
     }
 
@@ -101,7 +102,7 @@ class LoginController extends Controller
         ]);
 
 
-        return redirect('/login');
+        return redirect('/login')->with('sukses', 'Registrasi Anda berhasil silahkan login');
     }
 
     // ganti password
