@@ -134,11 +134,6 @@
                   <input type="text" name="harga" class="form-control" readonly id="harga">
                   <small id="kode" class="form-text text-white">Satu akun hanya dapat membeli satu tiket</small>
               </div>
-              <div class="form-group">
-                      <label for="exampleInputPassword1">Masukkan Email anda</label>
-                      <input type="text" name="email" class="form-control" id="exampleInputPassword1" aria-describedby="kode">
-                      <small id="kode" class="form-text text-white">Email akan digunakan untuk mengirimkan qr code </small>
-              </div>
           </div>
                <div class="modal-footer">
               <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>

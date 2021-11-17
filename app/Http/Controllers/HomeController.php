@@ -23,7 +23,7 @@ class HomeController extends Controller
         // Menampilkan tanggal sekarang
         $time = Carbon::Now();
         // {{$time->translatedFormat('l, d F Y')}}
-        $tiket = Tiket::with('kategori')->latest()->offset(0)->limit(4)->get();
+        $tiket = Tiket::with('kategori')->latest()->offset(0)->limit(5)->get();
         return view('/dashboard', compact ('tiket' ,'time'));
     }
     public function viewTiket()

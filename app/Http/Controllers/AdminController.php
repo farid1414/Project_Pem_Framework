@@ -203,6 +203,13 @@ class AdminController extends Controller
         return view ('/admin/view_film',compact('kategori','time'));
     }
 
+    public function hapusTiket(Tiket $Tiket)
+    {
+        Tiket::destroy($Tiket->id);
+
+        toast('Anda berhasil menghapus Tiket', 'success');
+        return redirect()->back();
+    }
     
     public function dataJual(Tiket $tiket)
     {

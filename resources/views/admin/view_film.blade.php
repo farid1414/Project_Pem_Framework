@@ -29,7 +29,7 @@
                     </i></a>
                 </div> --}}
                 <div class="ket">
-                    <a id="select" class="btn btn-warning  float-right btn-circle " 
+                    <a id="select" class="btn btn-warning  float-right btn-circle d-inline" 
                     data-toggle="modal" data-target="#detail" 
                     data-judul="{{$tiket->judul}}"
                     data-penyedia="{{$tiket->admin->name}}"
@@ -40,8 +40,13 @@
                     data-tayang="{{$tiket->getTayang()}}"
                     data-open="{{$tiket->getMulai()}}">
                     <i class="fa fa-eye"></i></a>
-                    @if(Auth::guard('admin')->user()->level != "perusahaan" || Auth::guard('admin')->user()->id == $tiket->admin->id)
-                    <a href="" class="btn btn-danger btn-circle float-right"><i class="fa fa-trash"></i></a>
+                    @if( Auth::guard('admin')->user()->id == $tiket->admin->id)
+                    {{-- <a href="" class="btn btn-danger btn-circle float-right"><i class="fa fa-trash"></i></a> --}}
+                    <form action="/admin/tiket/{{$tiket->id}}" method="POST" class="d-inline float-right">
+                        @method('delete')
+                        @csrf
+                        <button class="badge badge-danger" onclick="return confirm('Apakah anda yakin?')"><i class="fa fa-trash"></i></button>
+                      </form>
                     @endif
                 </div>
             </div>

@@ -34,6 +34,7 @@ Route::Group(['middleware' => ['auth:admin']], function () {
     Route::get('/admin/{id}/edit-password', [AdminController::class, 'passAdmin']);
     Route::post('/admin/{id}/edit-password', [AdminController::class, 'posPass']);
     Route::get('/admin/tiket/{id}', [AdminController::class, 'lihatTiket']);
+    Route::delete('/admin/tiket/{Tiket:id}', [AdminController::class, 'hapusTiket']);
 });
 
 Route::Group(['middleware' => ['Perusahaan']], function () {
